@@ -94,10 +94,16 @@
 
 ### Project
 
-you can set docker just running
+you can set docker running
 
 ```
 make up
+```
+
+you can stop docker running
+
+```
+make down
 ```
 
 you can run composer install running
