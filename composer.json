@@ -1,0 +1,20 @@
+{
+    "name": "juan/apo-challenge",
+    "description": "Apo Challenge",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Juan\\ApoChallenge\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juan Deladoey",
+            "email": "juanpablojuanpablo@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "steampixel/simple-php-router": "^0.7.1"
+    }
+}
