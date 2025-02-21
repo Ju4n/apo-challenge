@@ -1,7 +1,5 @@
 # Medications REST API
 
-This API allows you to manage medications, including adding, retrieving, updating, and deleting medication records.
-
 ## **Endpoints**
 
 ### **Add a Medication (POST)**
@@ -22,12 +20,12 @@ This API allows you to manage medications, including adding, retrieving, updatin
 "status": "success",
 "message": "Medication added successfully",
 "data": {
-"id": 1,
-"name": "Paracetamol",
-"started_at": "2024-02-21 08:00:00",
-"dosage": 500,
-"note": "Take after meals"
-}
+    "id": 1,
+    "name": "Paracetamol",
+    "started_at": "2024-02-21 08:00:00",
+    "dosage": 500,
+    "note": "Take after meals"
+    }
 }
 ```
 
@@ -62,10 +60,10 @@ This API allows you to manage medications, including adding, retrieving, updatin
 - **Request Body:**
 ```json
 {
-"name": "Ibuprofen",
-"started_at": "2024-02-21 09:00:00",
-"dosage": 400,
-"note": "Take with water"
+    "name": "Ibuprofen",
+    "started_at": "2024-02-21 09:00:00",
+    "dosage": 400,
+    "note": "Take with water"
 }
 ```
 - **Response:**
@@ -74,12 +72,12 @@ This API allows you to manage medications, including adding, retrieving, updatin
 "status": "success",
 "message": "Medication updated successfully",
 "data": {
-"id": 1,
-"name": "Ibuprofen",
-"started_at": "2024-02-21 09:00:00",
-"dosage": 400,
-"note": "Take with water"
-}
+    "id": 1,
+    "name": "Ibuprofen",
+    "started_at": "2024-02-21 09:00:00",
+    "dosage": 400,
+    "note": "Take with water"
+    }
 }
 ```
 
@@ -91,8 +89,8 @@ This API allows you to manage medications, including adding, retrieving, updatin
 - **Response:**
 ```json
 {
-"status": "success",
-"message": "Medication deleted successfully"
+    "status": "success",
+    "message": "Medication deleted successfully"
 }
 ```
 
@@ -103,14 +101,14 @@ This API allows you to manage medications, including adding, retrieving, updatin
 - **Invalid Request:**
 ```json
 {
-"status": "error",
-"message": "Invalid request parameters"
+    "status": "error",
+    "message": "Invalid request parameters"
 }
 ```
 - **Medication Not Found:**
 ```json
 {
-"status": "error",
-"message": "Medication not found"
+    "status": "error",
+    "message": "Medication not found"
 }
 ```
