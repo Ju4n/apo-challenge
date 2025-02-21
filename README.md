@@ -92,8 +92,22 @@
 }
 ```
 
-### Not implemented
+### Project
 
+you can set docker just running
+
+```
+make up
+```
+
+you can run composer install running
+
+```
+make composer-install
+```
+
+
+### Not implemented
 - Database initialization
 - Get one Medication in Repository and Service
 - User Handling
