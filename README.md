@@ -7,12 +7,14 @@
 - **Endpoint:** `POST /medications`
 - **Request Body:**
 ```json
-{
-"name": "Paracetamol",
-"started_at": "2024-02-21 08:00:00",
-"dosage": 500,
-"note": "Take after meals"
-}
+[
+    {
+    "name": "Paracetamol",
+    "started_at": "2024-02-21 08:00:00",
+    "dosage": 500,
+    "note": "Take after meals"
+    }
+]
 ```
 - **Response:**
 ```json
@@ -26,25 +28,6 @@
     "dosage": 500,
     "note": "Take after meals"
     }
-}
-```
-
----
-
-### **Get a Medication by a Parameter (GET)**
-
-- **Endpoint:** `GET /medications?name=Paracetamol`
-- **Response:**
-```json
-{
-"status": "success",
-"data": {
-"id": 1,
-"name": "Paracetamol",
-"started_at": "2024-02-21 08:00:00",
-"dosage": 500,
-"note": "Take after meals"
-}
 }
 ```
 
@@ -108,3 +91,10 @@
     "message": "Medication not found"
 }
 ```
+
+### Not implemented
+
+- Database initialization
+- Get one Medication in Repository and Service
+- User Handling
+- Tests
