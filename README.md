@@ -112,6 +112,15 @@ you can run composer install running
 make composer-install
 ```
 
+### application host
+
+add this to /etc/hosts
+
+```
+apo.test
+```
+
+
 
 ### Not implemented
 - Database initialization
