@@ -4,7 +4,7 @@ This API allows you to manage medications, including adding, retrieving, updatin
 
 ## **Endpoints**
 
-### ** Add a Medication (POST) **
+### **Add a Medication (POST)**
 
 - **Endpoint:** `POST /medications`
 - **Request Body:**
@@ -33,7 +33,7 @@ This API allows you to manage medications, including adding, retrieving, updatin
 
 ---
 
-### ** Get a Medication by a Parameter (GET)**
+### **Get a Medication by a Parameter (GET)**
 
 - **Endpoint:** `GET /medications?name=Paracetamol`
 - **Response:**
@@ -56,7 +56,7 @@ This API allows you to manage medications, including adding, retrieving, updatin
 
 ---
 
-### ** Update a Medication (PUT)**
+### **Update a Medication (PUT)**
 
 - **Endpoint:** `PUT /medications/1`
 - **Request Body:**
@@ -85,7 +85,7 @@ This API allows you to manage medications, including adding, retrieving, updatin
 
 ---
 
-### ** Delete a Medication (DELETE)**
+### **Delete a Medication (DELETE)**
 
 - **Endpoint:** `DELETE /medications/1`
 - **Response:**
