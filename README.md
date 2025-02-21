@@ -47,10 +47,6 @@
 }
 }
 ```
-- **You can filter by different parameters:**
-- `GET /medications?started_at=2024-02-21`
-- `GET /medications?dosage=500`
-- `GET /medications?note=Take after meals`
 
 ---
 
