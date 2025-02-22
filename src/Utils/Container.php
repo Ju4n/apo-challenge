@@ -3,7 +3,6 @@
 namespace Juan\ApoChallenge\Utils;
 
 use Exception;
-use RuntimeException;
 
 class Container
 {
