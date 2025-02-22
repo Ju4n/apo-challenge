@@ -7,14 +7,12 @@
 - **Endpoint:** `POST /medications`
 - **Request Body:**
 ```json
-[
-    {
+{
     "name": "Paracetamol",
     "started_at": "2024-02-21 08:00:00",
     "dosage": 500,
     "note": "Take after meals"
-    }
-]
+}
 ```
 - **Response:**
 ```json
