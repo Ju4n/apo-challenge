@@ -97,6 +97,17 @@ code: 200
 }
 ```
 
+**Response:**
+```
+code: 404
+```
+
+```json
+{
+    "message": "Medication id 3 not found"
+}
+```
+
 ---
 
 ## **Project Setup**

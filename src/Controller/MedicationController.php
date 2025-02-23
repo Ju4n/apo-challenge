@@ -92,9 +92,9 @@ class MedicationController extends Controller
         $isDeleted = $this->getService(MedicationService::class)->deleteMedications($id);
 
         if (!$isDeleted) {
-            JsonResponse::send('Couldnt delete medication id: ' . $id);
+            JsonResponse::send(['message' => 'Medication id ' . $id . ' not found'], 404);
         }
 
-        JsonResponse::send('medication id ' . $id . ' deleted');
+        JsonResponse::send(['message' => 'Medication id ' . $id . ' deleted'], 200);
     }
 }
