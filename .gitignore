@@ -1,2 +1,5 @@
 /vendor/
 /docker/mysql
+.php-cs-fixer.cache
+.env
+

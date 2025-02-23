@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         displayDetailsOnTestsThatTriggerWarnings="true"
+         colors="true"
+         beStrictAboutTestsThatDoNotTestAnything="false">
+  <testsuites>
+    <testsuite name="Api Test Suite">
+      <directory>tests/src/</directory>
+    </testsuite>
+  </testsuites>
+
+  <coverage/>
+
+  <php>
+    <ini name="date.timezone" value="UTC"/>
+    <server name="REQUEST_METHOD" value="GET"/>
+  </php>
+
+  <source>
+    <include>
+      <directory suffix=".php">src/</directory>
+    </include>
+  </source>
+
+
+</phpunit>

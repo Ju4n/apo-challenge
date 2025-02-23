@@ -21,4 +21,11 @@ test:
 composer-install:
 	docker exec -it apo-web composer install
 
+phpstan:
+	docker exec -it apo-web vendor/bin/phpstan analyse
 
+phpunit:
+	docker exec -it apo-web vendor/bin/phpunit
+
+codefixer:
+	docker exec -it apo-web vendor/bin/php-cs-fixer fix src

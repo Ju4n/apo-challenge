@@ -1,0 +1,14 @@
+parameters:
+        level: 6
+        paths:
+                - src
+                - tests
+        ignoreErrors:
+                - '#Call to an undefined method ClanCats\\Hydrahon\\Builder::table\(\)#'
+                - '#Variable \$container might not be defined#'
+        excludePaths:
+                - src/Utils/JsonResponse.php
+                - tests/src/Controller/MedicationControllerTest.php
+                - tests/src/Controller/MedicationControllerTest.php
+
+

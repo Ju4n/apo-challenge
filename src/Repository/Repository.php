@@ -1,11 +1,16 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Juan\ApoChallenge\Repository;
 
-use Juan\ApoChallenge\Database\DatabaseHandler;
+use ClanCats\Hydrahon\Builder;
+use Juan\ApoChallenge\Database\Interface\BuilderInterface;
 
-class Repository 
+class Repository
 {
-    public function __construct(protected readonly DatabaseHandler $database)  
+    protected Builder $database;
+
+    public function __construct(BuilderInterface $builder)
     {
+        $this->database = $builder->getBuilder();
     }
 }

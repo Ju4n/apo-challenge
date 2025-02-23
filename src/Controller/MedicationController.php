@@ -1,43 +1,100 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Juan\ApoChallenge\Controller;
 
 use Juan\ApoChallenge\Service\MedicationService;
+use Juan\ApoChallenge\Service\UserService;
 use Juan\ApoChallenge\Utils\JsonResponse;
 use Juan\ApoChallenge\Utils\Request;
+use Juan\ApoChallenge\Utils\Validator\Type\Types;
 
 class MedicationController extends Controller
 {
-    public function createMedications(Request $request): void
-    {
-        // TODO
-    }
+    protected MedicationService $medicationService;
+
+    protected UserService $userService;
+
+    const USER_ID = 'User-ID';
 
     public function getMedications(Request $request): void
     {
-        $service = $this->getService(MedicationService::class);
-        $result = $service->getMedications();
+        $userId = (int) $request->getHeader(self::USER_ID);
+        // allows only pharmacists
+        $this->getAccess()->isPharmacist($userId);
 
-        JsonResponse::send($result);
+        $result = $this->getService(MedicationService::class)->getMedications();
 
+        JsonResponse::send($result, 200);
     }
 
-    public function editMedications(Request $request): void
+    public function createMedications(Request $request): void
     {
+        $userId = (int) $request->getHeader(self::USER_ID);
+        // allows only customers
+        $this->getAccess()->isCustomer($userId);
+
         $data = $request->getBody();
-        $service = $this->getService(MedicationService::class);
-        $result = $service->createMedications($data);
+        $validator = $this->getValidator();
+        $isValid = $validator->validate(
+            $data,
+            [
+                'name' => ['type' => Types::STRING, 'required' => true],
+                'started_at' => ['type' => Types::STRING, 'required' => true],
+                'dosage' => ['type' => Types::NUMBER, 'required' => true],
+                'note' => ['type' => Types::STRING, 'required' => false],
+            ]
+        );
 
-        JsonResponse::send($result);
+        if (!$isValid) {
+            JsonResponse::send($validator->getErrors(), 400);
+        }
 
+        $result = $this->getService(MedicationService::class)->createMedications($data);
+
+        JsonResponse::send($result, 201);
     }
 
     public function updateMedications(int $id, Request $request): void
     {
+        $userId = (int) $request->getHeader(self::USER_ID);
+        // allows only customers
+        $this->getAccess()->isCustomer($userId);
+
         $data = $request->getBody();
-        $service = $this->getService(MedicationService::class);
-        $result = $service->updateMedications($id, $data);
+        $validator = $this->getValidator();
+        $isValid = $validator->validate(
+            $data,
+            [
+                'name' => ['type' => Types::STRING, 'required' => false],
+                'started_at' => ['type' => Types::STRING, 'required' => false],
+                'dosage' => ['type' => Types::NUMBER, 'required' => false],
+                'note' => ['type' => Types::STRING, 'required' => false],
+            ]
+        );
+
+        if (!$isValid) {
+            JsonResponse::send($validator->getErrors(), 400);
+        }
+
+        $result = $this->getService(MedicationService::class)->updateMedications($id, $data);
 
         JsonResponse::send($result);
+    }
+
+    public function deleteMedications(int $id, Request $request): void
+    {
+        $userId = (int) $request->getHeader(self::USER_ID);
+        // allows only customers
+        $this->getAccess()->isCustomer($userId);
+
+        $isDeleted = $this->getService(MedicationService::class)->deleteMedications($id);
+
+        if (!$isDeleted) {
+            JsonResponse::send('Couldnt delete medication id: ' . $id);
+        }
+
+        JsonResponse::send('medication id ' . $id . ' deleted');
     }
 }

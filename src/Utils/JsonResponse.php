@@ -1,9 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Juan\ApoChallenge\Utils;
 
-class JsonResponse {
-    public static function send($data, int $status = 200) {
+class JsonResponse
+{
+    /**
+     * @param array<mixed>|string $data
+     */
+    public static function send(array|string $data, int $status = 200): int
+    {
         http_response_code($status);
 
         header("Content-Type: application/json; charset=UTF-8");
@@ -11,6 +18,7 @@ class JsonResponse {
         header("Pragma: no-cache");
 
         echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-        exit;
+
+        exit();
     }
 }

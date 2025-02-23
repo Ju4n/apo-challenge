@@ -23,23 +23,17 @@ services:
         volumes:
             - "./docker/mysql/data/:/var/lib/mysql/"
             - "./docker/mysql/logs:/var/logs/mysql/"
+            - "./docker/database/init.sql:/docker-entrypoint-initdb.d/init.sql"
         ulimits:
             nofile: # Fix memory leak issue on some systems when LimitCORE=infinity (containerd)
                 soft: 1048576
                 hard: 1048576
         environment:
-            MSYQL_HOST: apo-db
-            MYSQL_ROOT_PASSWORD: Roo@Toor@123
+            MYSQL_ROOT_PASSWORD: toor
             MYSQL_DATABASE: apoTest
-            MYSQL_USER: apoUser
-            MYSQL_PASSWORD: apoPassword
         networks:
             - new_apo_net
 
 networks:
     new_apo_net:
         driver: bridge
-        ipam:
-            config:
-                - subnet: 172.28.0.0/16
-                  gateway: 172.28.0.254

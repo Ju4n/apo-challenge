@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace Juan\ApoChallenge\Database;
+namespace Juan\ApoChallenge\Database\Exception;
 
 use Exception;
 
