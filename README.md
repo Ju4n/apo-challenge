@@ -125,3 +125,5 @@ apo.test
 - Get one Medication in Repository and Service
 - User Handling
 - Tests
+
+**Note:** If you want to see a finished and working version, with more or less everything implemented (obviously using much more than 3 hours), you can check out this [branch](https://github.com/Ju4n/apo-challenge/tree/feature/crud-complete). I fixed the errors I couldn't fix before and completed everything because I thought it would be fun.
